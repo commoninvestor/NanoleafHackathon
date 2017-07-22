@@ -42,8 +42,41 @@ void pluginCleanup();
  *
  */
 void initPlugin() {
+
 	enableEnergy();
 	enableBeatFeatures();
+
+	LayoutData* layoutData;
+	FrameSlice_t* frameSlices = NULL;
+	int nFrameSlices = 0;
+	static int currentAuroraRotation = 0;
+
+	RGB_t * colorPalette = NULL;
+	int nColors = 0;
+	RGB_t pulseColorRight;
+	RGB_t pulseColorLeft;
+	RGB_t netColor
+	RGB_t baseColor
+
+	int lifeTime1, lifeTime2;
+
+	getFrameSlicesFromLayoutForTriangle(layoutData, &frameSlices, &nFrameSlices, currentAuroraRotation);
+
+	getColorPalette(&colorPalette, &nColors);
+
+	if (nColors == 0){
+	        pulseColorRight = {255, 255, 255};
+	        pulseColorLeft = {0, 0, 0};
+	    }
+	    else if (nColors == 1){
+	        pulseColorRight = colorPalette[0];
+	        pulseColorLeft = {0, 0, 0};
+	    }
+	    else if (nColors >= 2){
+	        pulseColorRight = colorPalette[0];
+	        pulseColorLeft = colorPalette[1];
+	    }
+
 
 }
 
@@ -63,6 +96,11 @@ void initPlugin() {
  * @param sleepTime: specify interval after which this function is called again, NULL if sound visualization plugin
  */
 void getPluginFrame(Frame_t* frames, int* nFrames, int* sleepTime) {
+
+	if (getIsBeat) && (lifeTime1 == maxTravel){
+lifeTime = 0;
+
+	}
 
 }
 
